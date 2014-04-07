@@ -9,7 +9,8 @@ rabbitmq-server:
 
 
 {% from 'firewall/lib.sls' import firewall_enable with context %}
-{{ firewall_enable('carbon', 5672, 'tcp') }}
+{{ firewall_enable('rabbitmq', 5672, 'tcp') }}
+{{ firewall_enable('rabbitmq', 4369, 'tcp') }}
 
 
 {% from 'logstash/lib.sls' import logship with context %}
