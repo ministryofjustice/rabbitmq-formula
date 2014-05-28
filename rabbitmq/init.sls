@@ -1,3 +1,7 @@
+include:
+  - firewall
+  - logstash.client
+
 rabbitmq-server:
   pkg:
     - installed
