@@ -11,6 +11,13 @@ rabbitmq-server:
     - require:
       - pkg: rabbitmq-server
 
+/etc/apparmor.d/usr.lib.erlang.erts-5.8.5.bin.beam.smp:
+  file.managed:
+    - source: salt://sensu/files/client_apparmor_profile
+    - template: 'jinja'
+    - watch_in:
+       - command: reload-profiles
+       - service: rabbitmq-server
 
 {% from 'firewall/lib.sls' import firewall_enable with context %}
 {{ firewall_enable('rabbitmq', 5672, 'tcp') }}
