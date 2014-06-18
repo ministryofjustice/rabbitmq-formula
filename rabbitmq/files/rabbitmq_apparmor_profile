@@ -1,6 +1,6 @@
 #include <tunables/global>
 
-/usr/lib/erlang/erts-5.8.5/bin/beam.smp {
+/usr/lib/erlang/erts-5.8.5/bin/beam.smp flags=(complain) {
   #include <abstractions/base>
   #include <abstractions/nameservice>
   #include <abstractions/ubuntu-konsole>
