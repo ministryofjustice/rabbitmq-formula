@@ -10,6 +10,13 @@ rabbitmq-server:
     - enable: True
     - require:
       - pkg: rabbitmq-server
+    - watch:
+      - file: /etc/rabbitmq/rabbitmq.config
+
+/etc/rabbitmq/rabbitmq.config:
+  file.managed:
+    - template: jinja
+    - source: salt://rabbitmq/templates/rabbitmq.config
 
 
 {% from 'firewall/lib.sls' import firewall_enable with context %}
