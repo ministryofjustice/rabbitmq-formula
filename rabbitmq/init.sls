@@ -47,6 +47,17 @@ dead-rabbitmq-server:
       - service: rabbitmq-server
 {% endif %}
 
+{% for pname,policy in salt['pillar.get']('rabbitmq:policies',{}).items() %}
+rabbit_policy_{{ pname }}:
+  rabbitmq_policy.present:
+    - name: {{ pname }}
+    - pattern: {{ policy.pattern }}
+    - definition: '{{ policy.definition|string }}'
+    - vhost: {{ policy.vhost }}
+    - require:
+      - service: rabbitmq-server
+{% endfor %}
+
 {% from 'firewall/lib.sls' import firewall_enable with context %}
 {{ firewall_enable('rabbitmq', 5672, 'tcp') }}
 {{ firewall_enable('rabbitmq', 4369, 'tcp') }}
