@@ -1,2 +1,2 @@
 git@github.com:ministryofjustice/firewall-formula.git==v1.1.0
-git@github.com:ministryofjustice/logstash-formula.git==v1.0.6
+git@github.com:ministryofjustice/logstash-formula.git==v1.2.0
