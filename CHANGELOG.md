@@ -1,4 +1,4 @@
-## Version 1.x.x
+## Version 1.1.0
 
 * Add config for clustering
 * Add support for policies in the pillar
