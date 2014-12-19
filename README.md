@@ -23,3 +23,14 @@ Note: rabbitmq doesn't support FQDNs so make sure you use short names in the clu
 The erlang cookie should be a random string A-Z, don't use the above example.
 
 Rabbitmq must be stopped before you change the cookie. So the salt state here will stop rabbit if it's going to change and will ensure the service is running after the change.
+
+##Admin web interface
+You can enable the rabbit management interface on port 8080 with the following pillar.
+
+Be careful with this, especially if you have the default guest user enabled. As this will open the port on the instance by default.
+
+```
+rabbitmq:
+  management:
+    enabled: True
+```

@@ -1,3 +1,6 @@
+## Version 1.x.x
+* Add support for admin web interface
+
 ## Version 1.1.0
 
 * Add config for clustering
