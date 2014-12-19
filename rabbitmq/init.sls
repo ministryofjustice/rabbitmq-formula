@@ -59,6 +59,15 @@ rabbit_policy_{{ pname }}:
 {% endfor %}
 
 {% from 'firewall/lib.sls' import firewall_enable with context %}
+{% if rabbitmq.management.enabled %}
+rabbitmq_management:
+  rabbitmq_plugin.enabled:
+    - watch_in:
+      service: rabbitmq-server
+
+{{ firewall_enable('rabbitmq-management', 8080, 'tcp') }}
+{% endif %}
+
 {{ firewall_enable('rabbitmq-node', 5672, 'tcp') }}
 {{ firewall_enable('rabbitmq-erlang-mapper', 4369, 'tcp') }}
 {{ firewall_enable('rabbitmq-erlang-cluster', 25672, 'tcp') }}
