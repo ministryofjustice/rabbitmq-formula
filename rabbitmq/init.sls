@@ -47,7 +47,8 @@ dead-rabbitmq-server:
       - service: rabbitmq-server
 {% endif %}
 
-{% for pname,policy in salt['pillar.get']('rabbitmq:policies',{}).items() %}
+{% if rabbitmq.policies %}
+{% for pname,policy in rabbitmq.policies.items() %}
 rabbit_policy_{{ pname }}:
   rabbitmq_policy.present:
     - name: {{ pname }}
@@ -57,6 +58,7 @@ rabbit_policy_{{ pname }}:
     - require:
       - service: rabbitmq-server
 {% endfor %}
+{% endif %}
 
 {% from 'firewall/lib.sls' import firewall_enable with context %}
 {% if rabbitmq.management.enabled %}
