@@ -1,5 +1,6 @@
-## Version 1.x.x
-* Add support for admin web interface
+## Version 1.2.0
+* Add support for admin web interface.
+* Tidy up policies, include in map.jinja.
 
 ## Version 1.1.0
 
