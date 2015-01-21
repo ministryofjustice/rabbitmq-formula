@@ -1,6 +1,13 @@
 {% set rabbitmq = salt['grains.filter_by']({
     'Debian': {
       'cluster_hosts': None,
+      'management':{
+        'enabled': False,
+        'firewall':{
+          'enabled': True
+        },
+        'port': 8080
+      },
       'erlang': {
         'cookie': ''
       }
