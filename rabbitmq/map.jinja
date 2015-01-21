@@ -2,7 +2,11 @@
     'Debian': {
       'cluster_hosts': None,
       'management':{
-        'enabled': False
+        'enabled': False,
+        'firewall':{
+          'enabled': True
+        },
+        'port': 8080
       },
       'erlang': {
         'cookie': ''

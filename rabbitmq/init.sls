@@ -64,8 +64,10 @@ rabbitmq_management:
   rabbitmq_plugin.enabled:
     - watch_in:
       service: rabbitmq-server
-
-{{ firewall_enable('rabbitmq-management', 8080, 'tcp') }}
+{% if rabbitmq.management.firewall.enabled %}
+{% else %}
+{{ firewall_enable('rabbitmq-management', rabbitmq.management.port, 'tcp') }}
+{% endif %}
 {% endif %}
 
 {{ firewall_enable('rabbitmq-node', 5672, 'tcp') }}
