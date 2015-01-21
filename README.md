@@ -27,10 +27,12 @@ Rabbitmq must be stopped before you change the cookie. So the salt state here wi
 ##Admin web interface
 You can enable the rabbit management interface on port 8080 with the following pillar.
 
-Be careful with this, especially if you have the default guest user enabled. As this will open the port on the instance by default.
+Be careful with this, especially if you have the default guest user enabled. The following will enable the management interface and disable the local firewall.
 
 ```
 rabbitmq:
   management:
     enabled: True
+    firewall:
+      enabled: False
 ```
