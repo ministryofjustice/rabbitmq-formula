@@ -1,3 +1,6 @@
+## Version 1.2.x
+* Make cluster partition handling customisable. Set default to autoheal.
+
 ## Version 1.2.0
 * Add support for admin web interface.
 * Tidy up policies, include in map.jinja.

@@ -1,6 +1,9 @@
 {% set rabbitmq = salt['grains.filter_by']({
     'Debian': {
       'cluster_hosts': None,
+      'cluster': {
+        'partition_handling': 'autoheal'
+      },
       'policies': {},
       'management':{
         'enabled': False,
