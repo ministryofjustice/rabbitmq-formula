@@ -36,3 +36,11 @@ rabbitmq:
     firewall:
       enabled: False
 ```
+
+##Cluster partition handling
+This set to autoheal by default (a good option for two nodes and for prioritising uptime). You may want [pause_minority](https://www.rabbitmq.com/partitions.html#which-mode) if you care about data consistency and have 3 or more nodes. e.g.
+```
+rabbitmq:
+  cluster:
+    partition_handling: pause_minority
+```
