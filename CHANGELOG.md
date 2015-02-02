@@ -1,4 +1,4 @@
-## Version 1.2.x
+## Version 1.2.1
 * Make cluster partition handling customisable. Set default to autoheal.
 
 ## Version 1.2.0
