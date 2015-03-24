@@ -1,2 +1,3 @@
+git@github.com:ministryofjustice/erlang-formula.git==v0.1.0
 git@github.com:ministryofjustice/firewall-formula.git==v1.1.0
 git@github.com:ministryofjustice/logstash-formula.git==v1.0.6

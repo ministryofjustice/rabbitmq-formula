@@ -1,17 +1,19 @@
-{% from "rabbitmq/map.jinja" import rabbitmq with context %}
+{% from 'rabbitmq/map.jinja' import rabbitmq with context %}
 
 include:
+  - .repo
+  - erlang
   - firewall
   - logstash.client
 
 rabbitmq-server:
-  pkg:
-    - installed
+  pkg.installed:
     - require:
+      - sls: erlang
+      - pkgrepo: pivotal-software-repository
       # yes really otherwise the cluster won't start
       - file: /etc/rabbitmq/rabbitmq.config
-  service:
-    - running
+  service.running:
     - enable: True
     - require:
       - pkg: rabbitmq-server

@@ -1,4 +1,5 @@
 dependencies:
+- git@github.com:ministryofjustice/erlang-formula.git
 - git@github.com:ministryofjustice/firewall-formula.git
 - git@github.com:ministryofjustice/logstash-formula.git
 
