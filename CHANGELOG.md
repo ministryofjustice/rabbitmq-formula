@@ -1,3 +1,8 @@
+## Version 1.3.0
+* Depend on `erlang-formula` and setup Pivotal Software repository to
+  install packages provided by them over these available by default
+  in Debian/Ubuntu (which tend to be rather old).
+
 ## Version 1.2.1
 * Make cluster partition handling customisable. Set default to autoheal.
 
