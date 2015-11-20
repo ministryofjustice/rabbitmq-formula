@@ -62,6 +62,17 @@ rabbit_policy_{{ pname }}:
 {% endfor %}
 {% endif %}
 
+{% if rabbitmq.users %}
+{% for name, user in rabbitmq.users.items() %}
+rabbitmq_user_{{ name }}:
+  rabbitmq_user.present:
+    - name: {{ name }}{% for pname, pvalue in user.items() %}
+    - {{ pname }}: {{ pvalue }}{% endfor %}
+    - require:
+      - service: rabbitmq-server
+{% endfor %}
+{% endif %}
+
 {% from 'firewall/lib.sls' import firewall_enable with context %}
 {% if rabbitmq.management.enabled %}
 rabbitmq_management:
