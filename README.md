@@ -44,3 +44,21 @@ rabbitmq:
   cluster:
     partition_handling: pause_minority
 ```
+
+##Adding rabbitmq-server users
+By default rabbitmq-server is set up with a guest user and only has access via localhost. To add new users with permissions on vhosts
+```
+rabbitmq:
+  users:
+    rabbit_user:
+      tags:
+        - administrator
+      perms:
+        - '/':
+          - '.*'
+          - '.*'
+          - '.*'
+      force: True
+      runas: root
+```
+[View this page](https://docs.saltstack.com/en/develop/ref/states/all/salt.states.rabbitmq_user.html) for more info on tags.
