@@ -1,3 +1,7 @@
+# v1.4.1
+
+* Update key details
+
 ## Version 1.3.0
 * Depend on `erlang-formula` and setup Pivotal Software repository to
   install packages provided by them over these available by default
